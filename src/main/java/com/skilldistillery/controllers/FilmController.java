@@ -30,15 +30,10 @@ public class FilmController {
 	@RequestMapping(path = "searchFilmById.do", method = RequestMethod.GET)
 	public ModelAndView getFilmById(@RequestParam(name = "filmId")String filmId) {
 		ModelAndView mv = new ModelAndView();
-<<<<<<< HEAD
-		Film film = filmDAO.getFilmById(filmId);
-		//System.out.println(film);
-=======
+
 		db = new DatabaseAccessorObject();
 		//Film film = filmDAO.getFilmById(filmId);
 		Film film = db.getFilmById(filmId);
-		System.out.println(film);
->>>>>>> 87386f0b94a2c39c202a13db7c72659bcbdf5a8f
 		mv.addObject("film", film);
 		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
