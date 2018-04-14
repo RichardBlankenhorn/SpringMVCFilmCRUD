@@ -31,7 +31,7 @@ public class FilmController {
 	 * Working leave alone
 	 */
 	@RequestMapping(path = "searchFilmById.do", method = RequestMethod.GET)
-	public ModelAndView getFilmById(@RequestParam(name = "filmId")String filmId) {
+	public ModelAndView getFilmById(@RequestParam(name = "filmId") String filmId) {
 		ModelAndView mv = new ModelAndView();
 		db = new DatabaseAccessorObject();
 		Film film = db.getFilmById(filmId);
@@ -39,6 +39,7 @@ public class FilmController {
 		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
 	}
+
 	// TODO get working
 	@RequestMapping(path = "addFilm.do", method = RequestMethod.POST)
 	public ModelAndView addFilm(Film film) {
@@ -72,9 +73,9 @@ public class FilmController {
 	// mv.setViewName("showactor");
 	// return mv;
 	// }
-	
-	//TODO add request mapping
-	//@RequestMapping
+
+	// TODO add request mapping
+	// @RequestMapping
 	public ModelAndView getActorsByFilmId(String filmId) {
 		ModelAndView mv = new ModelAndView();
 		List<Actor> actor = filmDAO.getActorsByFilmId(filmId);
@@ -82,25 +83,22 @@ public class FilmController {
 		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
 	}
-	
-	//TODO add request mapping, fix method to properly delete film
-	//@RequestMapping
-	public ModelAndView deleteFilm(Film film) {
+
+	@RequestMapping(path = "delete.do", method = RequestMethod.POST)
+	public ModelAndView deleteFilm(@RequestParam(name = "filmID")Film film) {
 		filmDAO.deleteFilm(film);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
 	}
-	
-	//TODO add request mapping
-	//@RequestMapping
+
+	// TODO add request mapping
+	// @RequestMapping
 	public ModelAndView updateFilm(Film film) {
 		filmDAO.addFilm(film);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
 	}
-	
 
-	
 }
