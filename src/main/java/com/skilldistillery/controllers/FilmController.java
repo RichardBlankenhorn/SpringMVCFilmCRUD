@@ -68,6 +68,25 @@ public class FilmController {
 		mv.setViewName("showfilm");
 		return mv;
 	}
+	
+	//TODO add request mapping
+	//@RequestMapping
+	public ModelAndView deleteFilm(Film film) {
+		filmDAO.deleteFilm(film);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("showfilm");
+		return mv;
+	}
+	
+	//TODO add request mapping
+	//@RequestMapping
+	public ModelAndView updateFilm(Film film) {
+		filmDAO.addFilm(film);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("showfilm");
+		return mv;
+	}
+	
 
 	
 }
