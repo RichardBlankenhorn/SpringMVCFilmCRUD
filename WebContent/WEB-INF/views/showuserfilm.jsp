@@ -38,7 +38,8 @@
 		</li>
 	</ul>
 	<form action="delete.do" method="POST">
-	<input type="submit" value="Delete film from database">
+	<input type="submit" value="Delete Film">
+	Type in the film ID to delete: 
 	<input type="text" name="filmID">
 	</form>
 	
