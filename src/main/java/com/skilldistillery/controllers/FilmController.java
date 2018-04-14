@@ -40,7 +40,7 @@ public class FilmController {
 		filmDAO.addFilm(film);
 		ModelAndView mv = new ModelAndView();
 		redir.addFlashAttribute("film", film);
-		mv.setViewName("showfilm");
+		mv.setViewName("/WEB-INF/views/showuserfilm.jsp");
 		return mv;
 	}
 
@@ -49,7 +49,7 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		List<Film> film = filmDAO.getFilmBySearchKeyword(keyword);
 		mv.addObject("film", film);
-		mv.setViewName("showfilm");
+		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
 	}
 
@@ -78,7 +78,7 @@ public class FilmController {
 	public ModelAndView deleteFilm(Film film) {
 		filmDAO.deleteFilm(film);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("showfilm");
+		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
 	}
 	
@@ -87,7 +87,7 @@ public class FilmController {
 	public ModelAndView updateFilm(Film film) {
 		filmDAO.addFilm(film);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("showfilm");
+		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
 	}
 	
