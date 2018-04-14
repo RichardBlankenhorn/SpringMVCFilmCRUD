@@ -36,7 +36,7 @@
                 <li>Rental rate: ${film.rentalRate}</li>
                 <li>Replacement cost: ${film.replacementCost}</li>
                 <li>Special features: ${film.specialFeatures}</li>
-                <li>Cast: ${film.actors}</li>
+               
             </ul>
         </li>
 
