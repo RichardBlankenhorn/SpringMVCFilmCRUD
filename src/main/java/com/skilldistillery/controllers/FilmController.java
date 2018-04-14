@@ -2,6 +2,8 @@ package com.skilldistillery.controllers;
 
 import java.util.List;
 
+import javax.xml.ws.RequestWrapper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +22,7 @@ import com.skilldistillery.film.entities.Film;
 public class FilmController {
 
 	@Autowired
-	//private FilmDAO filmDAO;
+	// private FilmDAO filmDAO;
 	private DatabaseAccessor db;
 
 	public void setFilmDAO(DatabaseAccessor filmDAO) {
@@ -83,13 +85,13 @@ public class FilmController {
 		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
 	}
-	
+
 	/*
 	 * Working leave alone
 	 */
 
 	@RequestMapping(path = "delete.do", method = RequestMethod.POST)
-	public ModelAndView deleteFilm(@RequestParam(name = "filmID")String filmID) {
+	public ModelAndView deleteFilm(@RequestParam(name = "filmID") String filmID) {
 		System.out.println("In the controller");
 		Film film = db.getFilmById(filmID);
 		System.out.println(film);
@@ -100,9 +102,9 @@ public class FilmController {
 	}
 
 	// TODO add request mapping
-	// @RequestMapping
-	public ModelAndView updateFilm(Film film) {
-		db.addFilm(film);
+	@RequestMapping(path = "update.do", method = RequestMethod.POST)
+	public ModelAndView updateFilm(@RequestParam(name= "filmID")Film film) {
+		db.updateFilm(film);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
