@@ -1,5 +1,16 @@
 package com.skilldistillery.film.dao;
 
-public interface FilmDAO {
+import java.util.List;
 
+import com.skilldistillery.film.entities.Actor;
+import com.skilldistillery.film.entities.Film;
+
+public interface FilmDAO {
+	public Film getFilmById(String filmId);
+	public void addFilm(Film film);
+	public Film deleteFilm(Film film);
+	public Film updateFilm(Film film);
+	public List<Film> getFilmBySearchKeyword(String keyword);
+	public List<Actor> getActorsByFilmId(String filmId);
+	public Actor getActorById(int actorID);
 }
