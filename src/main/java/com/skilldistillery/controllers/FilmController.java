@@ -43,9 +43,9 @@ public class FilmController {
 	@RequestMapping(path = "addFilm.do", method = RequestMethod.POST)
 	public ModelAndView addFilm(Film film) {
 		//filmDAO.addFilm(film);
-		db.addFilm(film);
 		ModelAndView mv = new ModelAndView();
 		db = new DatabaseAccessorObject();
+		db.addFilm(film);
 //		redir.addFlashAttribute("film", film);
 		mv.addObject("film", film);
 		mv.setViewName("/WEB-INF/views/showfilm.jsp");
