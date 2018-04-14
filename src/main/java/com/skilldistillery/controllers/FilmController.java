@@ -27,29 +27,33 @@ public class FilmController {
 		this.filmDAO = filmDAO;
 	}
 
+	/*
+	 * Working leave alone
+	 */
 	@RequestMapping(path = "searchFilmById.do", method = RequestMethod.GET)
 	public ModelAndView getFilmById(@RequestParam(name = "filmId")String filmId) {
 		ModelAndView mv = new ModelAndView();
-
 		db = new DatabaseAccessorObject();
-		//Film film = filmDAO.getFilmById(filmId);
 		Film film = db.getFilmById(filmId);
 		mv.addObject("film", film);
 		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
 	}
-
+	// TODO get working
 	@RequestMapping(path = "addFilm.do", method = RequestMethod.POST)
 	public ModelAndView addFilm(Film film, RedirectAttributes redir) {
-//		filmDAO.addFilm(film);
+		//filmDAO.addFilm(film);
+		db.addFilm(film);
 		ModelAndView mv = new ModelAndView();
 		db = new DatabaseAccessorObject();
-//		Film film = db.addFilm(film);
 		redir.addFlashAttribute("film", film);
 		mv.setViewName("/WEB-INF/views/showuserfilm.jsp");
 		return mv;
 	}
 
+	/*
+	 * Working leave alone
+	 */
 	@RequestMapping(path = "searchFilmByKeyword.do", method = RequestMethod.GET)
 	public ModelAndView getFilmBySearchKeyword(@RequestParam(name = "keyword") String keyword) {
 		ModelAndView mv = new ModelAndView();
