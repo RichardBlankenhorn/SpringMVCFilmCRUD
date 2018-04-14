@@ -63,6 +63,12 @@
 
     </ul>
     </c:forEach> 
+    
+    <form action="delete.do" method="POST">
+	<input type="submit" value="Delete film from database">
+	<input type="text" name="filmID">
+	</form>
+	
     <a href="index.html">Return to Main Menu</a>
 
     <!-- JS files for Bootstrap -->
