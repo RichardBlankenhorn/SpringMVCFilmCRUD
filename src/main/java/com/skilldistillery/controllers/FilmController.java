@@ -42,11 +42,9 @@ public class FilmController {
 	// TODO get working
 	@RequestMapping(path = "addFilm.do", method = RequestMethod.POST)
 	public ModelAndView addFilm(Film film) {
-		//filmDAO.addFilm(film);
 		ModelAndView mv = new ModelAndView();
 		db = new DatabaseAccessorObject();
 		db.addFilm(film);
-//		redir.addFlashAttribute("film", film);
 		mv.addObject("film", film);
 		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
@@ -59,7 +57,6 @@ public class FilmController {
 	public ModelAndView getFilmBySearchKeyword(@RequestParam(name = "keyword") String keyword) {
 		ModelAndView mv = new ModelAndView();
 		db = new DatabaseAccessorObject();
-//		List<Film> films = filmDAO.getFilmBySearchKeyword(keyword);
 		List<Film> films = db.getFilmBySearchKeyword(keyword);
 		mv.addObject("films", films);
 		mv.setViewName("/WEB-INF/views/showfilm.jsp");
