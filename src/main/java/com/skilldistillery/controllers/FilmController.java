@@ -41,12 +41,10 @@ public class FilmController {
 
 	@RequestMapping(path = "addFilm.do", method = RequestMethod.POST)
 	public ModelAndView addFilm(Film film, RedirectAttributes redir) {
-<<<<<<< HEAD
+
 		//filmDAO.addFilm(film);
 		db.addFilm(film);
-=======
-//		filmDAO.addFilm(film);
->>>>>>> ac20d4097de5ad80c7042db70787ba6f114ee2f2
+
 		ModelAndView mv = new ModelAndView();
 		db = new DatabaseAccessorObject();
 //		Film film = db.addFilm(film);
@@ -58,12 +56,9 @@ public class FilmController {
 	@RequestMapping(path = "searchFilmByKeyword.do", method = RequestMethod.GET)
 	public ModelAndView getFilmBySearchKeyword(@RequestParam(name = "keyword") String keyword) {
 		ModelAndView mv = new ModelAndView();
-<<<<<<< HEAD
-		//List<Film> films = filmDAO.getFilmBySearchKeyword(keyword);
-=======
+
 		db = new DatabaseAccessorObject();
 //		List<Film> films = filmDAO.getFilmBySearchKeyword(keyword);
->>>>>>> ac20d4097de5ad80c7042db70787ba6f114ee2f2
 		List<Film> films = db.getFilmBySearchKeyword(keyword);
 		mv.addObject("films", films);
 		mv.setViewName("/WEB-INF/views/showfilm.jsp");
