@@ -43,11 +43,11 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping(path = "searchFilmByKeyword.do", params = "filmsByKeyword", method = RequestMethod.GET)
+	@RequestMapping(path = "searchFilmByKeyword.do", method = RequestMethod.GET)
 	public ModelAndView getFilmBySearchKeyword(@RequestParam(name = "keyword") String keyword) {
 		ModelAndView mv = new ModelAndView();
-		List<Film> film = filmDAO.getFilmBySearchKeyword(keyword);
-		mv.addObject("film", film);
+		List<Film> films = filmDAO.getFilmBySearchKeyword(keyword);
+		mv.addObject("films", films);
 		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
 	}
