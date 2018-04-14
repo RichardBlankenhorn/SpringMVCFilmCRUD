@@ -22,49 +22,55 @@ public class FilmQueryApp {
 		DatabaseAccessor db = new DatabaseAccessorObject();
 		Scanner kb = new Scanner(System.in);
 		
-		System.out.println("Please select from the following menu");
-		System.out.println("1. Select Film by Film ID\n2. Select Film by Search Keyword\n3. Add a New Film\n4. Exit Application");
-		String input = kb.nextLine();
+		System.out.println("Please enter a film title: ");
+		String title = kb.nextLine();
+		System.out.println("Please enter a description: ");
+		String desc = kb.nextLine();
+		System.out.println("Please enter");
 		
-		String id = "";
-		if (input.trim().equals("1")) {
-			System.out.print("Please select a Film by the film ID: ");
-			if (kb.hasNextInt()) {
-				id = kb.nextLine();
-				Film f = db.getFilmById(id);
-				System.out.println("Film Title: "+ f.getTitle() + " | " + "Film Rating: " + f.getRating());
-			}
-			// Return message if film ID invalid. Ask user to select again
-			else {
-				System.out.println("Invalid ID. It must be an integer.");
-				run();
-			}
-		}
-		else if (input.trim().equals("2")) {
-			System.out.print("Please enter a search keyword: ");
-			String text = kb.nextLine();
-			
-			// Verify if result was returned
-			List<Film> films = db.getFilmBySearchKeyword(text);
-			if (films.size() == 0) {
-				System.out.print("There were no films that matched the keyword " + text);
-				// Print results
-			} else {
-				System.out.println("\nBelow is the information for the selected films");
-				for (Film f : films) {
-					Language l = db.getLanguageById(Integer.toString(f.getId()));
-					List<Actor> actors = db.getActorsByFilmId(Integer.toString(f.getId()));
-					System.out.println("Film Title: " + f.getTitle() + " | Year: " + f.getYear() + " | Rating: "
-							+ f.getRating() + " | Description: " + f.getDescription() + " | Language: "
-							+ l.getId());
-					System.out.println("The actors in this film are " + actors.toString() + "\n");
-				}
-			}
-			//makeSelection();
-			//return;
-		}
-		
-		kb.close();
+//		System.out.println("Please select from the following menu");
+//		System.out.println("1. Select Film by Film ID\n2. Select Film by Search Keyword\n3. Add a New Film\n4. Exit Application");
+//		String input = kb.nextLine();
+//		
+//		String id = "";
+//		if (input.trim().equals("1")) {
+//			System.out.print("Please select a Film by the film ID: ");
+//			if (kb.hasNextInt()) {
+//				id = kb.nextLine();
+//				Film f = db.getFilmById(id);
+//				System.out.println("Film Title: "+ f.getTitle() + " | " + "Film Rating: " + f.getRating());
+//			}
+//			// Return message if film ID invalid. Ask user to select again
+//			else {
+//				System.out.println("Invalid ID. It must be an integer.");
+//				run();
+//			}
+//		}
+//		else if (input.trim().equals("2")) {
+//			System.out.print("Please enter a search keyword: ");
+//			String text = kb.nextLine();
+//			
+//			// Verify if result was returned
+//			List<Film> films = db.getFilmBySearchKeyword(text);
+//			if (films.size() == 0) {
+//				System.out.print("There were no films that matched the keyword " + text);
+//				// Print results
+//			} else {
+//				System.out.println("\nBelow is the information for the selected films");
+//				for (Film f : films) {
+//					Language l = db.getLanguageById(Integer.toString(f.getId()));
+//					List<Actor> actors = db.getActorsByFilmId(Integer.toString(f.getId()));
+//					System.out.println("Film Title: " + f.getTitle() + " | Year: " + f.getYear() + " | Rating: "
+//							+ f.getRating() + " | Description: " + f.getDescription() + " | Language: "
+//							+ l.getId());
+//					System.out.println("The actors in this film are " + actors.toString() + "\n");
+//				}
+//			}
+//			//makeSelection();
+//			//return;
+//		}
+//		
+//		kb.close();
 		
 	}
 
