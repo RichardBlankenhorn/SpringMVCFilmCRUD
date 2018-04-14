@@ -18,6 +18,7 @@
 	<h1>Welcome to the Film Query Database</h1>
 	<p>Here is the film information you requested:</p>
 	
+	<c:forEach items="${films}" var="film">
 	<ul>
 		<li>Film title: ${film.title}
 			<ul>
@@ -35,6 +36,7 @@
 		</li>
 
 	</ul>
+	</c:forEach> 
 	<a href="index.html">Return to Main Menu</a>
 
 	<!-- JS files for Bootstrap -->
