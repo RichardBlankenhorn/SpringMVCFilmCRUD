@@ -29,18 +29,24 @@
 
 	<!--  Search for a film by ID searchFilmById.do-->
 	<!--  Search for a film by keyword searchFilmByKeyword.do -->
+	
 	<form action="searchFilmById.do" method="GET">
 		<select name="filmsById" size="1">
 			<option value="SelectFilmById">Select film by ID</option>
-		</select> <br /> <input type="submit">
+		</select> 
+		<br /> 
+		<input type="submit">
 	</form>
+	
 	<br />
-
 
 	<form action="searchFilmByKeyword.do" method="GET">
 		<select name="filmsByKeyword">
 			<option value="SelectFilmByKeyword">Select film by keyword</option>
-		</select> <br /> <input type="submit">
+		</select> 
+		<br /> 
+		
+		<input type="submit">
 	</form>
 	<br />
 	<br />
@@ -56,7 +62,9 @@
 
 
 	<!-- User can edit film -->
-
+	
+	
+<!-- JS files for Bootstrap -->	
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous"></script>
