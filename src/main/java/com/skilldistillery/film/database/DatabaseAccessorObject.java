@@ -196,7 +196,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	@Override
 	public Film deleteFilm(Film film) {
 		Connection conn = null;
-System.out.println("anythign");
+		// System.out.println("anythign");
 		try {
 			conn = DriverManager.getConnection(URL2, user, pass);
 			conn.setAutoCommit(false);
@@ -220,7 +220,7 @@ System.out.println("anythign");
 					System.err.println("Trying to RollBack");
 				}
 			}
-			throw new RuntimeException("Error deleting film " + film);
+			throw new RuntimeException("Error deleting film " + film.getTitle());
 		}
 		return film;
 	}
@@ -248,6 +248,50 @@ System.out.println("anythign");
 		}
 
 		return l;
+	}
+
+	@Override
+	public Film updateFilm(Film film) {
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(URL2, user, pass);
+			conn.setAutoCommit(false);
+
+			String sql = "UPDATE film SET title = ?, description = ?, year =? , languageID = ?,"
+					+ "rentalDuration = ?, rentalRate = ?, filmLength = ?, replacementCost = ?,"
+					+ "rating = ?, specialFeatures = ? WHERE id = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+			stmt.setInt(1, film.getId());
+			stmt.setString(2, film.getDescription());
+			stmt.setString(3, film.getYear());
+			stmt.setInt(4, film.getLanguageID());
+			stmt.setInt(5, film.getRentalDuration());
+			stmt.setDouble(6, film.getRentalRate());
+			stmt.setInt(7, film.getFilmLength());
+			stmt.setDouble(8, film.getReplacementCost());
+			stmt.setString(9, film.getRating());
+			stmt.setString(10, film.getSpecialFeatures());
+			stmt.setInt(11, film.getId());
+			
+			int updateCount = stmt.executeUpdate();
+
+			if (updateCount == 1) {
+				conn.commit();
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException e2) {
+					System.err.println("Trying to RollBack");
+				}
+			}
+			throw new RuntimeException("Error updating film " + film.getTitle());
+		}
+		return film;
 	}
 
 }
