@@ -19,7 +19,7 @@
 	<p>Here is the film information you requested:</p>
 	
 	<ul>
-		<li>Film title:
+		<li>Film title: ${film.title}
 			<ul>
 				<li>Description: ${film.description}</li>
 				<li>Rating: ${film.rating}</li>

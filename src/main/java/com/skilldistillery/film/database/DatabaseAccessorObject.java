@@ -48,6 +48,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 						rs.getInt(6), rs.getDouble(7), rs.getInt(8), rs.getDouble(9), rs.getString(10),
 						rs.getString(11));
 			}
+			// Testing get actors by film id
+			ArrayList<Actor> a = getActorsByFilmId(filmId);
+			film.setActors(a);
 			rs.close();
 			stmt.close();
 			conn.close();
@@ -115,8 +118,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	}
 
 	@Override
-	public List<Actor> getActorsByFilmId(String filmId) {
-		List<Actor> actorsByFilmId = null;
+	public ArrayList<Actor> getActorsByFilmId(String filmId) {
+		ArrayList<Actor> actorsByFilmId = null;
 
 		try {
 			String sql = "SELECT a.id, a.first_name, a.last_name FROM actor a JOIN film_actor fa "

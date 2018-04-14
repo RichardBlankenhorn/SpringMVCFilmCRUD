@@ -11,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.film.dao.FilmDAO;
+import com.skilldistillery.film.database.DatabaseAccessor;
+import com.skilldistillery.film.database.DatabaseAccessorObject;
 import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
 
@@ -19,6 +21,7 @@ public class FilmController {
 
 	@Autowired
 	private FilmDAO filmDAO;
+	private DatabaseAccessor db;
 
 	public void setFilmDAO(FilmDAO filmDAO) {
 		this.filmDAO = filmDAO;
@@ -28,7 +31,9 @@ public class FilmController {
 	@RequestMapping(path = "searchFilmById.do", method = RequestMethod.GET)
 	public ModelAndView getFilmById(@RequestParam(name = "filmId")String filmId) {
 		ModelAndView mv = new ModelAndView();
-		Film film = filmDAO.getFilmById(filmId);
+		db = new DatabaseAccessorObject();
+		//Film film = filmDAO.getFilmById(filmId);
+		Film film = db.getFilmById(filmId);
 		System.out.println(film);
 		mv.addObject("film", film);
 		mv.setViewName("/WEB-INF/views/showfilm.jsp");
