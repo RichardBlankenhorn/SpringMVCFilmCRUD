@@ -23,14 +23,14 @@
 			<ul>
 				<li>Description: ${film.description}</li>
 				<li>Rating: ${film.rating}</li>
-				<li>Run time: ${film.length}</li>
-				<li>Release year: ${film.release}</li>
-				<li>Language: ${film.language}</li>
-				<li>Rental duration: ${film.duration}</li>
-				<li>Rental rate: ${film.rate}</li>
-				<li>Replacement cost: ${film.cost}</li>
-				<li>Special features: ${film.specFeat}</li>
-				<li>Cast: ${film.cast}</li>
+				<li>Run time: ${film.filmLength}</li>
+				<li>Release year: ${film.year}</li>
+				<li>Language: ${film.languageID}</li>
+				<li>Rental duration: ${film.rentalDuration}</li>
+				<li>Rental rate: ${film.rentalRate}</li>
+				<li>Replacement cost: ${film.replacementCost}</li>
+				<li>Special features: ${film.specialFeatures}</li>
+				<li>Cast: ${film.actors}</li>
 			</ul>
 			</ul>
 		</li>

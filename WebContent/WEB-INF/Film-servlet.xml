@@ -13,7 +13,7 @@
   
   	<bean id="dao" class="com.skilldistillery.film.dao.FilmDAOImpl">
   	</bean>
-  	<bean id="dao" class="com.skilldistillery.film.entities.Film">
+  	<bean id="film" class="com.skilldistillery.film.entities.Film">
   	</bean>
   	
 	<!-- <mvc:annotation-driven></mvc:annotation-driven>
