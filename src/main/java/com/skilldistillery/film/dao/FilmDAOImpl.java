@@ -15,16 +15,16 @@ public class FilmDAOImpl implements FilmDAO {
 
 	public FilmDAOImpl() {
 		films = new ArrayList<>();
-		films.add(new Film(1, "Pulp Fiction", "Thriller", 1994, 1, 5, 3.99, 190, 5.99, "R", "Trailers"));
-		films.add(new Film(2, "The Three Amigos", "Comedy", 1988, 1, 5, 3.99, 190, 5.99, "PG", "Trailers"));
-		films.add(new Film(3, "Forest Gump", "Drama", 1994, 1, 5, 3.99, 190, 5.99, "R", "Trailers"));
-		films.add(new Film(4, "The Naked Gun", "Comedy", 1970, 1, 5, 3.99, 190, 5.99, "PG13", "Trailers"));
-		films.add(new Film(5, "A Quiet Place", "Horror", 2018, 1, 5, 3.99, 190, 5.99, "R", "Trailers"));
-		films.add(new Film(6, "Christmas Vacation", "Comedy", 1988, 1, 5, 3.99, 190, 5.99, "PG13", "Trailers"));
-		films.add(new Film(7, "Alien", "Thriller", 1991, 1, 5, 3.99, 190, 5.99, "R", "Trailers"));
-		films.add(new Film(8, "Argo", "Drama", 2013, 1, 5, 3.99, 190, 5.99, "R", "Trailers"));
-		films.add(new Film(9, "Inglorious Basterds", "Drama", 2008, 1, 5, 3.99, 190, 5.99, "R", "Trailers"));
-		films.add(new Film(10, "Meet The Parents", "Comedy", 2001, 1, 5, 3.99, 190, 5.99, "R", "Trailers"));
+		films.add(new Film(1, "Pulp Fiction", "Thriller", "1994", 1, 5, 3.99, 190, 5.99, "R", "Trailers"));
+		films.add(new Film(2, "The Three Amigos", "Comedy", "1998", 1, 5, 3.99, 190, 5.99, "PG", "Trailers"));
+		films.add(new Film(3, "Forest Gump", "Drama", "1994", 1, 5, 3.99, 190, 5.99, "R", "Trailers"));
+		films.add(new Film(4, "The Naked Gun", "Comedy", "1985", 1, 5, 3.99, 190, 5.99, "PG13", "Trailers"));
+		films.add(new Film(5, "A Quiet Place", "Horror", "2018", 1, 5, 3.99, 190, 5.99, "R", "Trailers"));
+		films.add(new Film(6, "Christmas Vacation", "Comedy", "1988", 1, 5, 3.99, 190, 5.99, "PG13", "Trailers"));
+		films.add(new Film(7, "Alien", "Thriller", "1991", 1, 5, 3.99, 190, 5.99, "R", "Trailers"));
+		films.add(new Film(8, "Argo", "Drama", "2013", 1, 5, 3.99, 190, 5.99, "R", "Trailers"));
+		films.add(new Film(9, "Inglorious Basterds", "Drama", "2008", 1, 5, 3.99, 190, 5.99, "R", "Trailers"));
+		films.add(new Film(10, "Meet The Parents", "Comedy", "2001", 1, 5, 3.99, 190, 5.99, "R", "Trailers"));
 
 		actors = new ArrayList<>();
 		actors.add(new Actor(1, "Sigourney", "Weaver"));

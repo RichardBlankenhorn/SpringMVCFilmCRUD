@@ -152,14 +152,14 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, film.getTitle());
 			stmt.setString(2, film.getDescription());
-			stmt.setString(3, film.getRelease_year());
-			stmt.setInt(4, film.getLanguage_id());
-			stmt.setInt(5, film.getRental_duration());
-			stmt.setDouble(6, film.getRental_rate());
-			stmt.setInt(7, film.getLength());
-			stmt.setDouble(8, film.getReplacement_cost());
+			stmt.setString(3, film.getYear());
+			stmt.setInt(4, film.getLanguageID());
+			stmt.setInt(5, film.getRentalDuration());
+			stmt.setDouble(6, film.getRentalRate());
+			stmt.setInt(7, film.getFilmLength());
+			stmt.setDouble(8, film.getReplacementCost());
 			stmt.setString(9, film.getRating());
-			stmt.setString(10, film.getSpecial_features());
+			stmt.setString(10, film.getSpecialFeatures());
 
 			int updateCount = stmt.executeUpdate();
 
@@ -189,8 +189,34 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	@Override
 	public Film deleteFilm(Film film) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection conn = null;
+
+		try {
+			conn = DriverManager.getConnection(URL2, user, pass);
+			conn.setAutoCommit(false);
+
+			String sql = "DELETE FROM film WHERE id = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+			stmt.setInt(1, film.getId());
+			int updateCount = stmt.executeUpdate();
+
+			if (updateCount == 1) {
+				conn.commit();
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException e2) {
+					System.err.println("Trying to RollBack");
+				}
+			}
+			throw new RuntimeException("Error deleting film " + film);
+		}
+		return film;
 	}
 
 }
