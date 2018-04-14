@@ -196,7 +196,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	@Override
 	public Film deleteFilm(Film film) {
 		Connection conn = null;
-
+System.out.println("anythign");
 		try {
 			conn = DriverManager.getConnection(URL2, user, pass);
 			conn.setAutoCommit(false);

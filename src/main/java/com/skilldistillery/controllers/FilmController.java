@@ -20,11 +20,11 @@ import com.skilldistillery.film.entities.Film;
 public class FilmController {
 
 	@Autowired
-	private FilmDAO filmDAO;
+	//private FilmDAO filmDAO;
 	private DatabaseAccessor db;
 
-	public void setFilmDAO(FilmDAO filmDAO) {
-		this.filmDAO = filmDAO;
+	public void setFilmDAO(DatabaseAccessor filmDAO) {
+		this.db = filmDAO;
 	}
 
 	/*
@@ -78,7 +78,7 @@ public class FilmController {
 	// @RequestMapping
 	public ModelAndView getActorsByFilmId(String filmId) {
 		ModelAndView mv = new ModelAndView();
-		List<Actor> actor = filmDAO.getActorsByFilmId(filmId);
+		List<Actor> actor = db.getActorsByFilmId(filmId);
 		mv.addObject("film", actor);
 		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
@@ -86,8 +86,10 @@ public class FilmController {
 
 	@RequestMapping(path = "delete.do", method = RequestMethod.POST)
 	public ModelAndView deleteFilm(@RequestParam(name = "filmID")String filmID) {
-		Film film = filmDAO.getFilmById(filmID);
-		filmDAO.deleteFilm(film);
+		System.out.println("In the controller");
+		Film film = db.getFilmById(filmID);
+		System.out.println(film);
+		db.deleteFilm(film);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
@@ -96,7 +98,7 @@ public class FilmController {
 	// TODO add request mapping
 	// @RequestMapping
 	public ModelAndView updateFilm(Film film) {
-		filmDAO.addFilm(film);
+		db.addFilm(film);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
