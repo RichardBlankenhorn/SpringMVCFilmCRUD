@@ -117,8 +117,8 @@ public class Film {
 	}
 
 	public Film(int id, String title, String description, int year, int languageID, int rentalDuration,
-			double rentalRate, int filmLength, double replacementCost, String rating, String specialFeatures,
-			ArrayList<Actor> actors) {
+			double rentalRate, int filmLength, double replacementCost, String rating, String specialFeatures) {
+			
 		super();
 		this.id = id;
 		this.title = title;
