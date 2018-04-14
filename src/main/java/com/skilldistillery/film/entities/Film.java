@@ -6,7 +6,7 @@ public class Film {
 	private int id;
 	private String title;
 	private String description;
-	private int year;
+	private String year;
 	private int languageID;
 	private int rentalDuration;
 	private double rentalRate;
@@ -48,11 +48,11 @@ public class Film {
 		this.description = description;
 	}
 
-	public int getYear() {
+	public String getYear() {
 		return year;
 	}
 
-	public void setYear(int year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 
@@ -116,7 +116,7 @@ public class Film {
 
 	}
 
-	public Film(int id, String title, String description, int year, int languageID, int rentalDuration,
+	public Film(int id, String title, String description, String year, int languageID, int rentalDuration,
 			double rentalRate, int filmLength, double replacementCost, String rating, String specialFeatures) {
 			
 		super();
@@ -131,7 +131,6 @@ public class Film {
 		this.replacementCost = replacementCost;
 		this.rating = rating;
 		this.specialFeatures = specialFeatures;
-		this.actors = actors;
 	}
 
 	@Override
@@ -159,7 +158,7 @@ public class Film {
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((specialFeatures == null) ? 0 : specialFeatures.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
-		result = prime * result + year;
+		result = prime * result + Integer.parseInt(year);
 		return result;
 	}
 
