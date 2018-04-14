@@ -17,26 +17,52 @@
 
 	<h1>Welcome to the Film Query Database</h1>
 	<p>Here is the film information you requested:</p>
-	
-	<c:forEach items="${films}" var="film">
-	<ul>
-		<li>Film title: ${film.title}
-			<ul>
-				<li>Description: ${film.description}</li>
-				<li>Rating: ${film.rating}</li>
-				<li>Run time: ${film.filmLength}</li>
-				<li>Release year: ${film.year}</li>
-				<li>Language: ${film.languageID}</li>
-				<li>Rental duration: ${film.rentalDuration}</li>
-				<li>Rental rate: ${film.rentalRate}</li>
-				<li>Replacement cost: ${film.replacementCost}</li>
-				<li>Special features: ${film.specialFeatures}</li>
-				<li>Cast: ${film.actors}</li>
-			</ul>
-		</li>
 
-	</ul>
-	</c:forEach> 
+	<c:choose>
+		<c:when test="${empty film}">
+
+
+		</c:when>
+		<c:otherwise>
+			<ul>
+				<li>Film title: ${film.title}
+					<ul>
+						<li>Description: ${film.description}</li>
+						<li>Rating: ${film.rating}</li>
+						<li>Run time: ${film.filmLength}</li>
+						<li>Release year: ${film.year}</li>
+						<li>Language: ${film.languageID}</li>
+						<li>Rental duration: ${film.rentalDuration}</li>
+						<li>Rental rate: ${film.rentalRate}</li>
+						<li>Replacement cost: ${film.replacementCost}</li>
+						<li>Special features: ${film.specialFeatures}</li>
+						<li>Cast: ${film.actors}</li>
+					</ul>
+				</li>
+
+			</ul>
+		</c:otherwise>
+	</c:choose>
+
+	<c:forEach items="${films}" var="film">
+		<ul>
+			<li>Film title: ${film.title}
+				<ul>
+					<li>Description: ${film.description}</li>
+					<li>Rating: ${film.rating}</li>
+					<li>Run time: ${film.filmLength}</li>
+					<li>Release year: ${film.year}</li>
+					<li>Language: ${film.languageID}</li>
+					<li>Rental duration: ${film.rentalDuration}</li>
+					<li>Rental rate: ${film.rentalRate}</li>
+					<li>Replacement cost: ${film.replacementCost}</li>
+					<li>Special features: ${film.specialFeatures}</li>
+					<li>Cast: ${film.actors}</li>
+				</ul>
+			</li>
+
+		</ul>
+	</c:forEach>
 	<a href="index.html">Return to Main Menu</a>
 
 	<!-- JS files for Bootstrap -->
