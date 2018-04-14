@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.film.dao.FilmDAO;
 import com.skilldistillery.film.entities.Actor;
@@ -23,19 +24,21 @@ public class FilmController {
 		this.filmDAO = filmDAO;
 	}
 
+	//TODO fix setViewName manually changed for testing
 	@RequestMapping(path = "searchFilmById.do", params = "filmsById", method = RequestMethod.GET)
 	public ModelAndView getFilmById(String id) {
 		ModelAndView mv = new ModelAndView();
 		Film film = filmDAO.getFilmById(id);
 		mv.addObject("film", film);
-		mv.setViewName("showfilm");
+		mv.setViewName("/WEB-INF/showfilm.jsp");
 		return mv;
 	}
 
 	@RequestMapping(path = "addFilm.do", method = RequestMethod.POST)
-	public ModelAndView addFilm(Film film) {
+	public ModelAndView addFilm(Film film, RedirectAttributes redir) {
 		filmDAO.addFilm(film);
 		ModelAndView mv = new ModelAndView();
+		redir.addFlashAttribute("film", film);
 		mv.setViewName("showfilm");
 		return mv;
 	}
@@ -69,7 +72,7 @@ public class FilmController {
 		return mv;
 	}
 	
-	//TODO add request mapping
+	//TODO add request mapping, fix method to properly delete film
 	//@RequestMapping
 	public ModelAndView deleteFilm(Film film) {
 		filmDAO.deleteFilm(film);
