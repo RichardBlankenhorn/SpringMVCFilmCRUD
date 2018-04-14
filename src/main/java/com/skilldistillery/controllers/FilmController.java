@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -26,9 +25,9 @@ public class FilmController {
 
 	//TODO fix setViewName manually changed for testing
 	@RequestMapping(path = "searchFilmById.do", params = "filmsById", method = RequestMethod.GET)
-	public ModelAndView getFilmById(String id) {
+	public ModelAndView getFilmById(String filmId) {
 		ModelAndView mv = new ModelAndView();
-		Film film = filmDAO.getFilmById(id);
+		Film film = filmDAO.getFilmById(filmId);
 		mv.addObject("film", film);
 		mv.setViewName("/WEB-INF/showfilm.jsp");
 		return mv;
