@@ -19,10 +19,10 @@
 	<p>Here is the film information you requested:</p>
 
 	<ul>
-		<li>Film title:
+		<li>Film title: ${film.title}
 			<ul>
-				<li>Description: ${film.description}</li>
 				<li>Rating: ${film.rating}</li>
+				<li>Description: ${film.description}</li>
 				<li>Run time: ${film.filmLength}</li>
 				<li>Release year: ${film.year}</li>
 				<li>Language: ${film.languageID}</li>
@@ -30,7 +30,7 @@
 				<li>Rental rate: ${film.rentalRate}</li>
 				<li>Replacement cost: ${film.replacementCost}</li>
 				<li>Special features: ${film.specialFeatures}</li>
-				<li>Cast: ${film.actors}</li>
+				
 			</ul>
 			</ul>
 		</li>
