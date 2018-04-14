@@ -15,6 +15,10 @@ public class Film {
 	private String rating;
 	private String specialFeatures;
 	private ArrayList<Actor> actors;
+	
+	public void film() {
+		
+	}
 
 	public ArrayList<Actor> getActors() {
 		return actors;
