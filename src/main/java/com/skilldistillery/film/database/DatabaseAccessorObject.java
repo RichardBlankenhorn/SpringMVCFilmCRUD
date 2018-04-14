@@ -11,10 +11,13 @@ import java.util.List;
 import com.mysql.jdbc.Statement;
 import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
+import com.skilldistillery.film.entities.Language;
+
+//import org.springframework.stereotype.Component;
 
 public class DatabaseAccessorObject implements DatabaseAccessor {
 
-	private static final String URL2 = "jdbc:mysql://localhost:3306/sdvid?verifyServerCertificate=false&useSSL=true";
+	private static final String URL2 = "jdbc:mysql://localhost:3306/sdvid";
 	private static final String user = "student";
 	private static final String pass = "student";
 
@@ -36,7 +39,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			String sql = "SELECT * FROM film WHERE id = ?";
 			Connection conn = DriverManager.getConnection(URL2, user, pass);
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			int fID = Integer.parseInt(filmId);
+			int fID = Integer.parseInt(filmId.trim());
 			stmt.setInt(1, fID);
 			ResultSet rs = stmt.executeQuery();
 
@@ -217,6 +220,31 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			throw new RuntimeException("Error deleting film " + film);
 		}
 		return film;
+	}
+
+	@Override
+	public Language getLanguageById(String filmId) {
+		Language l = null;
+		try {
+			String sql = "SELECT l.id, l.name FROM film f JOIN language l ON f.language_id = l.id WHERE f.id = ?";
+			Connection conn = DriverManager.getConnection(URL2, user, pass);
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			int fID = Integer.parseInt(filmId);
+			stmt.setInt(1, fID);
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				l = new Language(rs.getInt(1), rs.getString(2));
+			}
+			rs.close();
+			stmt.close();
+			conn.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return l;
 	}
 
 }
