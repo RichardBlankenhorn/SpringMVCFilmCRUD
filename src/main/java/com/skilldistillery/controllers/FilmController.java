@@ -24,7 +24,6 @@ public class FilmController {
 		this.filmDAO = filmDAO;
 	}
 
-	//TODO fix setViewName manually changed for testing
 	@RequestMapping(path = "searchFilmById.do", method = RequestMethod.GET)
 	public ModelAndView getFilmById(@RequestParam(name = "filmId")String filmId) {
 		ModelAndView mv = new ModelAndView();
@@ -40,7 +39,7 @@ public class FilmController {
 		filmDAO.addFilm(film);
 		ModelAndView mv = new ModelAndView();
 		redir.addFlashAttribute("film", film);
-		mv.setViewName("showfilm");
+		mv.setViewName("/WEB-INF/views/showuserfilm.jsp");
 		return mv;
 	}
 
@@ -49,7 +48,7 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		List<Film> film = filmDAO.getFilmBySearchKeyword(keyword);
 		mv.addObject("film", film);
-		mv.setViewName("showfilm");
+		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
 	}
 
@@ -69,7 +68,7 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		List<Actor> actor = filmDAO.getActorsByFilmId(filmId);
 		mv.addObject("film", actor);
-		mv.setViewName("showfilm");
+		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
 	}
 	
@@ -78,7 +77,7 @@ public class FilmController {
 	public ModelAndView deleteFilm(Film film) {
 		filmDAO.deleteFilm(film);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("showfilm");
+		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
 	}
 	
@@ -87,7 +86,7 @@ public class FilmController {
 	public ModelAndView updateFilm(Film film) {
 		filmDAO.addFilm(film);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("showfilm");
+		mv.setViewName("/WEB-INF/views/showfilm.jsp");
 		return mv;
 	}
 	
