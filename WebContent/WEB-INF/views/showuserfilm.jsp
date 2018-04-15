@@ -16,15 +16,15 @@
 </head>
 <body>
 
-
-	<h1>Welcome to the Film Query Database</h1>
-	<p>Here is the film information you requested:</p>
+	<h1>Film Query Database</h1>
+	
+	<p>Your film was successfully added to the database.</p>
 
 	<ul>
 		<li>Film title: ${film.title}
 			<ul>
-				<li>Rating: ${film.rating}</li>
 				<li>Description: ${film.description}</li>
+				<li>Rating: ${film.rating}</li>
 				<li>Run time: ${film.filmLength}</li>
 				<li>Release year: ${film.year}</li>
 				<li>Language: ${film.languageID}</li>
@@ -37,10 +37,11 @@
 			</ul>
 		</li>
 	</ul>
+	<br><br>
+	<p>Would you like to delete this film?</p>
 	<form action="delete.do" method="POST">
+	<input type="text" name="filmID"><br/>
 	<input type="submit" value="Delete Film">
-	Type in the film ID to delete: 
-	<input type="text" name="filmID">
 	</form>
 	
 

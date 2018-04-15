@@ -48,6 +48,7 @@
     <ul>
         <li>Film title: ${film.title}
             <ul>
+            	<li>ID: ${film.ID}</li>
                 <li>Description: ${film.description}</li>
                 <li>Rating: ${film.rating}</li>
                 <li>Run time: ${film.filmLength}</li>
@@ -63,11 +64,11 @@
 
     </ul>
     </c:forEach> 
-    
+    <br><br>
     <form action="delete.do" method="POST">
-	<input type="submit" value="Delete Film">
 	Type in the film ID to delete: 
-	<input type="text" name="filmID">
+	<input type="text" name="filmID"><br/>
+	<input type="submit" value="Delete Film">
 	</form>
 	
     <a href="index.html">Return to Main Menu</a>
