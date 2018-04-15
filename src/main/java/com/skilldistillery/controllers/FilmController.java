@@ -3,8 +3,11 @@ package com.skilldistillery.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,6 +38,8 @@ public class FilmController {
 		db = new DatabaseAccessorObject();
 		Film film = db.getFilmById(filmId);
 		List<Actor> actors = db.getActorsByFilmId(filmId);
+		String category = db.getCategoryByFilmId(filmId);
+		mv.addObject("category", category);
 		mv.addObject("actors", actors);
 		mv.addObject("film", film);
 		mv.setViewName("/WEB-INF/views/showfilm.jsp");
@@ -97,7 +102,7 @@ public class FilmController {
 	 */
 
 	@RequestMapping(path = "delete.do", method = RequestMethod.POST)
-	public ModelAndView deleteFilm(@RequestParam(name = "filmID") String filmID) {
+	public ModelAndView deleteFilm(@RequestParam(name = "filmID") @Valid String filmID) {
 		ModelAndView mv = new ModelAndView();
 		db = new DatabaseAccessorObject();
 
@@ -134,6 +139,15 @@ public class FilmController {
 		// mv.addObject("upFilm",newFilm);
 
 		mv.setViewName("/WEB-INF/views/changeFilm.jsp");
+		return mv;
+	}
+
+	@RequestMapping(path = "home.do", method = RequestMethod.GET)
+	public ModelAndView goHome() {
+		ModelAndView mv = new ModelAndView();
+
+		mv.setViewName("/WEB-INF/views/home.jsp");
+
 		return mv;
 	}
 

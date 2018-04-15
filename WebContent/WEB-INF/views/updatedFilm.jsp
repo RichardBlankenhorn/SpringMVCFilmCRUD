@@ -30,7 +30,10 @@
 		<li>Film ID: ${upFilm.id }</li>
 	</ul>
 
-	<a href="index.html">Return to Main Menu</a>
+	<br>
+	<form action="home.do" method="GET">
+		<input type="submit" value="Home Page"> <input type="hidden">
+	</form>
 
 	<!-- JS files for Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

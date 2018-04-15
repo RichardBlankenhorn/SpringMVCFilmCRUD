@@ -22,5 +22,7 @@ public interface DatabaseAccessor {
 	public Film deleteFilm(Film film);
 	
 	public Film updateFilm(Film film);
+	
+	public String getCategoryByFilmId(String filmId);
 
 }

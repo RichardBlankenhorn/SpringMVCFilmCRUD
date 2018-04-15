@@ -2,22 +2,16 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+<!DOCTYPE html>
 <html>
 <head>
+<!--  <meta charset="UTF-8">-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Home</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
 </head>
 <body>
 	<!-- <form action="index.do" method="GET">  -->
@@ -28,43 +22,59 @@
 	<h4>Please choose from the following options</h4>
 
 	<!--  Search for a film by ID searchFilmById.do-->
-	<!--  Search for a film by keyword searchFilmByKeyword.do -->
-	
 	<form action="searchFilmById.do" method="GET">
-		<select name="filmsById" size="1">
-			<option value="SelectFilmById">Select film by ID</option>
-		</select> 
-		<br /> 
-		<input type="submit">
+		Search film by Film ID: <input type="text" name=filmId> <input
+			type="submit">
 	</form>
-	
-	<br />
 
+	<!--  Search for a film by keyword searchFilmByKeyword.do -->
 	<form action="searchFilmByKeyword.do" method="GET">
-		<select name="filmsByKeyword">
-			<option value="SelectFilmByKeyword">Select film by keyword</option>
-		</select> 
-		<br /> 
-		
-		<input type="submit">
+		Search film by keyword: <input type="text" name=keyword> <input
+			type="submit">
 	</form>
+
 	<br />
 	<br />
 
 	<!-- User add film with all properties addFilm.do-->
 	<h4>Add a film to the database:</h4>
+
 	<form action="addFilm.do" method="POST">
-		Film title: <input type="text" name="filmname"><br /> Rating:
-		<input type="text" name="filmrating"><br /> Description:<input
-			type="text" name="filmdescription"><br /> <input
-			type="submit">
+		Film title: <input type="text" name="title"><br />
+		<br /> Rating: <select name="rating">
+			<option value="G">G</option>
+			<option value="PG">PG</option>
+			<option value="PG13">PG13</option>
+			<option value="R">R</option>
+			<option value="NC17">NC17</option>
+		</select> <br />
+		<br /> Description: <input type="text" name="description"><br />
+		<br /> Run time: <input type="text" name="filmLength"><br />
+		<br /> Release year: <input type="text" name="year"><br />
+		<br /> Language: <select name="languageID">
+			<option value="1">English</option>
+			<option value="2">Italian</option>
+			<option value="3">Japanese</option>
+			<option value="4">Mandarin</option>
+			<option value="5">French</option>
+			<option value="6">German</option>
+		</select> <br />
+		<br /> Rental duration: <input type="text" name="rentalDuratation"><br />
+		<br /> Rental rate: <input type="text" name="rentalRate"><br />
+		<br /> Replacement cost: <input type="text" name="replacementCost"><br />
+		<br /> Special Features: <select name="specialFeatures">
+			<option value="Trailers">Trailers</option>
+			<option value="Commentaries">Commentaries</option>
+			<option value="Deleted Scenes">Deleted Scenes</option>
+			<option value="Behind the Scenes">Behind the Scenes</option>
+		</select> <br /> <input type="submit">
 	</form>
 
 
 	<!-- User can edit film -->
-	
-	
-<!-- JS files for Bootstrap -->	
+
+
+	<!-- JS files for Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous"></script>

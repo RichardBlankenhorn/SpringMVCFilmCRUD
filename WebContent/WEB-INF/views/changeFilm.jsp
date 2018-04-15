@@ -20,9 +20,10 @@
 	<h3>Please make any needed changes</h3>
 
 	<form action="updateFilm.do" method="POST">
-		Film ID: <input type="text" value="${origFilm.id }" name="id" readonly="readonly"><br/></br>
-		Film title: <input type="text" value="${origFilm.title }" name="title"><br />
-		<br /> Rating: <select name="rating">
+		Film ID: <input type="text" value="${origFilm.id }" name="id"
+			readonly="readonly"><br /></br> Film title: <input type="text"
+			value="${origFilm.title }" name="title"><br /> <br />
+		Rating: <select name="rating">
 			<option value="G">G</option>
 			<option value="PG">PG</option>
 			<option value="PG13">PG13</option>
@@ -53,8 +54,10 @@
 			<option value="Behind the Scenes">Behind the Scenes</option>
 		</select> <br /> <input type="submit">
 	</form>
-
-	<a href="index.html">Return to Main Menu</a>
+	<br>
+	<form action="home.do" method="GET">
+		<input type="submit" value="Home Page"> <input type="hidden">
+	</form>
 
 	<!-- JS files for Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

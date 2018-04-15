@@ -18,7 +18,9 @@
 	<h2>The Film "${delFilm.title}" Has Been Deleted</h2>
 	<br>
 
-	<a href="index.html">Return to Main Menu</a>
+	<form action="home.do" method="GET">
+		<input type="submit" value="Home Page"> <input type="hidden">
+	</form>
 
 	<!-- JS files for Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

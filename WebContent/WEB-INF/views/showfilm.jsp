@@ -36,20 +36,27 @@
 						<li>Rental rate: ${film.rentalRate}</li>
 						<li>Replacement cost: ${film.replacementCost}</li>
 						<li>Special features: ${film.specialFeatures}</li>
-						<li>Cast:</li>
-						<table>
-							<tr>
-								<th>First Name</th>
-								<th>Last Name</th>
-							</tr>
-							<c:forEach items="${actors }" var="a">
+						<c:if test="${category !=  null}">
+							<li>Film Category: ${category }</li>
+						</c:if>
+						<c:if test="${category == null }">
+							<li>Film Category: None</li>
+						</c:if>
+						<c:if test="${actors.size() != 0 }">
+							<li>Cast:</li>
+							<table>
 								<tr>
-									<td>${a.firstName }</td>
-									<td>${a.lastName }</td>
-							</c:forEach>
-							</tr>
-						</table>
-
+									<th>First Name</th>
+									<th>Last Name</th>
+								</tr>
+								<c:forEach items="${actors }" var="a">
+									<tr>
+										<td>${a.firstName }</td>
+										<td>${a.lastName }</td>
+								</c:forEach>
+								</tr>
+							</table>
+						</c:if>
 					</ul>
 				</li>
 
@@ -93,19 +100,34 @@
 
 	</c:forEach>
 
-	<c:if test="${film.id > 1000 }">
-		<form action="delete.do" method="POST">
-			<input type="submit" value="Delete Film"> <input
-				type="hidden" value="${film.id }" name="filmID">
-		</form>
-		<br>
-		<form action="update.do" method="GET">
-			<input type="submit" value="Update Film"> <input
-				type="hidden" value="${film.id }" name="filmID">
-		</form>
-	</c:if>
+	<table>
+		<tr>
 
-	<a href="index.html">Return to Main Menu</a>
+			<c:if test="${film.id > 1000 }">
+				<td>
+					<form action="delete.do" method="POST">
+						<input type="submit" value="Delete Film"> <input
+							type="hidden" value="${film.id }" name="filmID">
+					</form>
+				</td>
+
+				<br>
+				<td>
+					<form action="update.do" method="GET">
+						<input type="submit" value="Update Film"> <input
+							type="hidden" value="${film.id }" name="filmID">
+					</form>
+				</td>
+			</c:if>
+
+			<td>
+				<form action="home.do" method="GET">
+					<input type="submit" value="Home Page"> <input
+						type="hidden">
+				</form>
+			</td>
+		</tr>
+	</table>
 
 	<!-- JS files for Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
