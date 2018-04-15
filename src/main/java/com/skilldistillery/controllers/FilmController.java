@@ -3,8 +3,6 @@ package com.skilldistillery.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -102,7 +100,7 @@ public class FilmController {
 	 */
 
 	@RequestMapping(path = "delete.do", method = RequestMethod.POST)
-	public ModelAndView deleteFilm(@RequestParam(name = "filmID") @Valid String filmID) {
+	public ModelAndView deleteFilm(@RequestParam(name = "filmID") String filmID) {
 		ModelAndView mv = new ModelAndView();
 		db = new DatabaseAccessorObject();
 
