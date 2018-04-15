@@ -92,21 +92,42 @@ public class FilmController {
 
 	@RequestMapping(path = "delete.do", method = RequestMethod.POST)
 	public ModelAndView deleteFilm(@RequestParam(name = "filmID") String filmID) {
-		System.out.println("In the controller");
+		ModelAndView mv = new ModelAndView();
+		db = new DatabaseAccessorObject();
+		
 		Film film = db.getFilmById(filmID);
+		mv.addObject("delFilm", film);
 		System.out.println(film);
 		db.deleteFilm(film);
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/WEB-INF/views/showfilm.jsp");
+		
+		//mv.setViewName("/WEB-INF/views/showfilm.jsp");
+		mv.setViewName("/WEB-INF/views/deletedFilmMessage.jsp");
 		return mv;
 	}
 
 	// TODO add request mapping
-	@RequestMapping(path = "update.do", method = RequestMethod.POST)
-	public ModelAndView updateFilm(@RequestParam(name= "filmID")Film film) {
-		db.updateFilm(film);
+	@RequestMapping(path = "updateFilm.do", method = RequestMethod.POST)
+	public ModelAndView updateFilm(Film film) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/WEB-INF/views/showfilm.jsp");
+		db = new DatabaseAccessorObject();
+	
+		Film newFilm = db.updateFilm(film);
+		mv.addObject("upFilm",newFilm);
+		mv.setViewName("/WEB-INF/views/updatedFilm.jsp");
+		return mv;
+	}
+	
+	@RequestMapping(path = "update.do", method = RequestMethod.GET)
+	public ModelAndView changeFilm(String filmID) {
+		ModelAndView mv = new ModelAndView();
+		
+		Film f = db.getFilmById(filmID);
+		mv.addObject("origFilm",f);
+		
+//		Film newFilm = db.updateFilm(f);
+//		mv.addObject("upFilm",newFilm);
+		
+		mv.setViewName("/WEB-INF/views/changeFilm.jsp");
 		return mv;
 	}
 
