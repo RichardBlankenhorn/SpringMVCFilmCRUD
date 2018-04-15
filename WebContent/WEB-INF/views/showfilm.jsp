@@ -36,6 +36,19 @@
 						<li>Rental rate: ${film.rentalRate}</li>
 						<li>Replacement cost: ${film.replacementCost}</li>
 						<li>Special features: ${film.specialFeatures}</li>
+						<li>Cast:</li>
+						<table>
+							<tr>
+								<th>First Name</th>
+								<th>Last Name</th>
+							</tr>
+							<c:forEach items="${actors }" var="a">
+								<tr>
+									<td>${a.firstName }</td>
+									<td>${a.lastName }</td>
+							</c:forEach>
+							</tr>
+						</table>
 
 					</ul>
 				</li>
@@ -44,7 +57,8 @@
 		</c:otherwise>
 	</c:choose>
 
-	<c:forEach items="${films}" var="film">
+	<c:forEach items="${films}" var="film" varStatus="status">
+
 		<ul>
 			<li>Film title: ${film.title}
 				<ul>
@@ -57,11 +71,26 @@
 					<li>Rental rate: ${film.rentalRate}</li>
 					<li>Replacement cost: ${film.replacementCost}</li>
 					<li>Special features: ${film.specialFeatures}</li>
-					<li>Cast: ${film.actors}</li>
+					<li>Cast:</li>
+					<table>
+						<tr>
+							<th>First Name</th>
+							<th>Last Name</th>
+						</tr>
+
+						<c:forEach items="${actorsList[status.index] }" var="a">
+							<tr>
+								<td>${a.firstName }</td>
+								<td>${a.lastName }</td>
+							</tr>
+						</c:forEach>
+
+					</table>
 				</ul>
 			</li>
 
 		</ul>
+
 	</c:forEach>
 
 	<c:if test="${film.id > 1000 }">
