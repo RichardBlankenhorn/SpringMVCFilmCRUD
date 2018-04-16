@@ -59,7 +59,7 @@
 			<option value="5">French</option>
 			<option value="6">German</option>
 		</select> <br />
-		<br /> Rental duration: <input type="number" name="rentalDuratation" required min="1" max="127"><br />
+		<br /> Rental duration: <input type="number" name="rentalDuration" required min="1" max="127"><br />
 		<br /> Rental rate: <input type="number" name="rentalRate" required min="0.01" max="100" step="0.01"><br />
 		<br /> Replacement cost: <input type="number" name="replacementCost" required min="0" max="100" step="0.01"><br />
 		<br /> Special Features: <select name="specialFeatures">

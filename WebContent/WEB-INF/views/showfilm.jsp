@@ -78,7 +78,7 @@
 					<li>Rental rate: ${film.rentalRate}</li>
 					<li>Replacement cost: ${film.replacementCost}</li>
 					<li>Special features: ${film.specialFeatures}</li>
-					<c:if test="${actorsList.size() != 0 }">
+					<c:if test="${film.id <= 1000 }">
 					<li>Cast:</li>
 					<table>
 						<tr>
