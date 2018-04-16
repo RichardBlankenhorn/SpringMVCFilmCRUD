@@ -78,6 +78,7 @@
 					<li>Rental rate: ${film.rentalRate}</li>
 					<li>Replacement cost: ${film.replacementCost}</li>
 					<li>Special features: ${film.specialFeatures}</li>
+					<c:if test="${actorsList.size() != 0 }">
 					<li>Cast:</li>
 					<table>
 						<tr>
@@ -91,8 +92,8 @@
 								<td>${a.lastName }</td>
 							</tr>
 						</c:forEach>
-
 					</table>
+					</c:if>
 				</ul>
 			</li>
 

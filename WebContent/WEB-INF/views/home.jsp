@@ -40,7 +40,7 @@
 	<h4>Add a film to the database:</h4>
 
 	<form action="addFilm.do" method="POST">
-		Film title: <input type="text" name="title"><br />
+		Film title: <input type="text" name="title" required minlength="1" maxlength="255"><br />
 		<br /> Rating: <select name="rating">
 			<option value="G">G</option>
 			<option value="PG">PG</option>
@@ -48,9 +48,9 @@
 			<option value="R">R</option>
 			<option value="NC17">NC17</option>
 		</select> <br />
-		<br /> Description: <input type="text" name="description"><br />
-		<br /> Run time: <input type="text" name="filmLength"><br />
-		<br /> Release year: <input type="text" name="year"><br />
+		<br /> Description: <input type="text" name="description" required><br />
+		<br /> Run time: <input type="number" name="filmLength" required min="1" max="1000"><br />
+		<br /> Release year: <input type="text" name="year" required minlength="4" maxlength="4"><br />
 		<br /> Language: <select name="languageID">
 			<option value="1">English</option>
 			<option value="2">Italian</option>
@@ -59,9 +59,9 @@
 			<option value="5">French</option>
 			<option value="6">German</option>
 		</select> <br />
-		<br /> Rental duration: <input type="text" name="rentalDuratation"><br />
-		<br /> Rental rate: <input type="text" name="rentalRate"><br />
-		<br /> Replacement cost: <input type="text" name="replacementCost"><br />
+		<br /> Rental duration: <input type="number" name="rentalDuratation" required min="1" max="127"><br />
+		<br /> Rental rate: <input type="number" name="rentalRate" required min="0.01" max="100" step="0.01"><br />
+		<br /> Replacement cost: <input type="number" name="replacementCost" required min="0" max="100" step="0.01"><br />
 		<br /> Special Features: <select name="specialFeatures">
 			<option value="Trailers">Trailers</option>
 			<option value="Commentaries">Commentaries</option>
