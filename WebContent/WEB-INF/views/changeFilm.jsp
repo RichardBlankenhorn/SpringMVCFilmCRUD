@@ -28,11 +28,36 @@
 			<br /> 
 			<br />
 		Rating: <select name="rating">
+		<c:if test="${origFilm.rating.equals('G')}">
+			<option value="G" selected>G</option>
+		</c:if>	
+		<c:if test="${!origFilm.rating.equals('G') }">
 			<option value="G">G</option>
+		</c:if>
+		<c:if test="${origFilm.rating.equals('PG')}">
+			<option value="PG" selected>PG</option>
+		</c:if>
+		<c:if test="${!origFilm.rating.equals('PG') }">
 			<option value="PG">PG</option>
+		</c:if>
+		<c:if test="${origFilm.rating.equals('PG13')}">
+			<option value="PG13" selected>PG13</option>
+		</c:if>
+		<c:if test="${!origFilm.rating.equals('PG13')}">
 			<option value="PG13">PG13</option>
+		</c:if>
+		<c:if test="${origFilm.rating.equals('R')}">
+			<option value="R" selected>R</option>
+		</c:if>
+		<c:if test="${!origFilm.rating.equals('R')}">
 			<option value="R">R</option>
+		</c:if>
+		<c:if test="${origFilm.rating.equals('NC17')}">
+			<option value="NC17" selected>NC17</option>
+		</c:if>
+		<c:if test="${!origFilm.rating.equals('NC17')}">
 			<option value="NC17">NC17</option>
+		</c:if>
 				</select> 
 			<br /> 
 			<br /> 
