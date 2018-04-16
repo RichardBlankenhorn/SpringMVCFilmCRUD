@@ -23,13 +23,13 @@
 
 	<!--  Search for a film by ID searchFilmById.do-->
 	<form action="searchFilmById.do" method="GET">
-		Search film by Film ID: <input type="text" name=filmId> <input
+		Search film by Film ID: <input type="text" name=filmId required minlength="1"> <input
 			type="submit">
 	</form>
 
 	<!--  Search for a film by keyword searchFilmByKeyword.do -->
 	<form action="searchFilmByKeyword.do" method="GET">
-		Search film by keyword: <input type="text" name=keyword> <input
+		Search film by keyword: <input type="text" name=keyword required> <input
 			type="submit">
 	</form>
 
