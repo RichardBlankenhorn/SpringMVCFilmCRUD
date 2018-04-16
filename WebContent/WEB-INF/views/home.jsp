@@ -23,8 +23,8 @@
 
 	<!--  Search for a film by ID searchFilmById.do-->
 	<form action="searchFilmById.do" method="GET">
-		Search film by Film ID: <input type="text" name=filmId required minlength="1"> <input
-			type="submit">
+		Search film by Film ID: <input type="text" name=filmId required minlength="1" maxlength="4"><input
+			type="submit"> <c:if test="${message.length() > 0}"><span>${message}</span></c:if>
 	</form>
 
 	<!--  Search for a film by keyword searchFilmByKeyword.do -->

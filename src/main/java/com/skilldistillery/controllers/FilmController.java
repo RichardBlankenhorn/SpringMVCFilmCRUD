@@ -33,6 +33,15 @@ public class FilmController {
 	@RequestMapping(path = "searchFilmById.do", method = RequestMethod.GET)
 	public ModelAndView getFilmById(@RequestParam(name = "filmId") String filmId) {
 		ModelAndView mv = new ModelAndView();
+		String message = "";
+		for (char c : filmId.toCharArray()) {
+			if (!Character.isDigit(c)) {
+				message = "Film ID must be a number";
+				mv.addObject("message", message);
+				mv.setViewName("/WEB-INF/views/home.jsp");
+				return mv;
+			}
+		}
 		db = new DatabaseAccessorObject();
 		Film film = db.getFilmById(filmId);
 		List<Actor> actors = db.getActorsByFilmId(filmId);
