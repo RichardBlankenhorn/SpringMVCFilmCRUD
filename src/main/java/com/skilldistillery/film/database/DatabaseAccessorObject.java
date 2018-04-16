@@ -48,6 +48,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 						rs.getInt(6), rs.getDouble(7), rs.getInt(8), rs.getDouble(9), rs.getString(10),
 						rs.getString(11));
 			}
+			else {
+				return film;
+			}
 			// Testing get actors by film id
 			ArrayList<Actor> a = getActorsByFilmId(filmId);
 			film.setActors(a);

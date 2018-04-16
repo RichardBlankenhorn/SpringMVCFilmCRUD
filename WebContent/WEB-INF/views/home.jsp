@@ -25,6 +25,7 @@
 	<form action="searchFilmById.do" method="GET">
 		Search film by Film ID: <input type="text" name=filmId required minlength="1" maxlength="4"><input
 			type="submit"> <c:if test="${message.length() > 0}"><span>${message}</span></c:if>
+			<c:if test="${sqlmessage.length() > 0 }"><span>${sqlmessage }</span></c:if>
 	</form>
 
 	<!--  Search for a film by keyword searchFilmByKeyword.do -->

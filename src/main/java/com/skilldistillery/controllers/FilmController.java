@@ -34,6 +34,7 @@ public class FilmController {
 	public ModelAndView getFilmById(@RequestParam(name = "filmId") String filmId) {
 		ModelAndView mv = new ModelAndView();
 		String message = "";
+		String sqlmessage = "";
 		for (char c : filmId.toCharArray()) {
 			if (!Character.isDigit(c)) {
 				message = "Film ID must be a number";
@@ -44,6 +45,12 @@ public class FilmController {
 		}
 		db = new DatabaseAccessorObject();
 		Film film = db.getFilmById(filmId);
+		if (film == null) {
+			sqlmessage = "Film ID not valid";
+			mv.addObject("sqlmessage",sqlmessage);
+			mv.setViewName("/WEB-INF/views/home.jsp");
+			return mv;
+		}
 		List<Actor> actors = db.getActorsByFilmId(filmId);
 		String category = db.getCategoryByFilmId(filmId);
 		mv.addObject("category", category);
